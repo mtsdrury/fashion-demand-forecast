@@ -57,14 +57,39 @@ Nominal sales are deflated to real (inflation-adjusted) dollars using the CPI Ap
 
 The with/without Trends comparison is the core of the analysis. Comparing each model against its Trends-augmented variant isolates the contribution of search interest data.
 
-## Cross-Validation
+## Results
+
+### Cross-Validation (12 folds, 12-month horizon)
+
+| Model | Mean RMSE | Mean MAE | Mean MAPE (%) |
+|-------|-----------|----------|---------------|
+| **Prophet** | **2,145** | **1,676** | **12.0** |
+| Seasonal Naive | 2,351 | 1,779 | 12.3 |
+| Prophet + Trends | 2,391 | 1,920 | 13.1 |
+| SARIMAX | 2,770 | 2,110 | 13.8 |
+| SARIMAX + Trends | 2,844 | 2,152 | 13.9 |
+
+### Key Findings
+
+**Google Trends did not improve forecast accuracy.** Adding fashion search interest as exogenous regressors slightly degraded both SARIMAX and Prophet:
+
+- SARIMAX + Trends: +2.7% worse RMSE vs. SARIMAX alone
+- Prophet + Trends: +11.5% worse RMSE vs. Prophet alone
+
+The best model was **Prophet without Trends** (mean CV RMSE = 2,145), followed by the Seasonal Naive baseline. The strong seasonal pattern in clothing retail sales is the dominant signal; monthly search interest for fashion market segments does not add predictive value at this aggregation level.
+
+![Cross-Validation Metrics](results/figures/cv_metrics_bar_chart.png)
+
+![Forecast Comparison](results/figures/forecast_comparison.png)
+
+## Cross-Validation Design
 
 Rolling-window cross-validation with:
 - **10-year** initial training window
 - **12-month** forecast horizon per fold
 - **1-year** step between folds
 
-This produces multiple train/test splits across different time periods (including the COVID-19 crash), giving a more robust evaluation than a single holdout split.
+This produces 12 train/test splits across different time periods (including the COVID-19 crash), giving a more robust evaluation than a single holdout split.
 
 ## Setup
 
