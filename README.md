@@ -39,9 +39,9 @@ fashion-demand-forecast/
 |--------|--------|-------------|-----------|
 | [FRED](https://fred.stlouisfed.org/) | MRTSSM448USN | US clothing retail sales (nominal, not seasonally adjusted) | Monthly, 1992-present |
 | [FRED](https://fred.stlouisfed.org/) | CPIAPPNS | CPI Apparel index (for inflation adjustment) | Monthly |
-| [Google Trends](https://trends.google.com/) | 5 fashion terms | Relative search interest (0-100) | Monthly, 2004-present |
+| [Google Trends](https://trends.google.com/) | 6 fashion terms | Relative search interest (0-100) | Monthly, 2004-present |
 
-**Google Trends terms:** athleisure, fast fashion, streetwear, sustainable fashion, luxury fashion
+**Google Trends terms:** fast fashion, luxury fashion, sustainable fashion, couture, secondhand fashion, discount fashion. Each represents a distinct fashion market segment (production, price point, or distribution model).
 
 Nominal sales are deflated to real (inflation-adjusted) dollars using the CPI Apparel index before modeling.
 

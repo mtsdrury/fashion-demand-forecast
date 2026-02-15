@@ -16,11 +16,12 @@ CPI_APPAREL_SERIES = "CPIAPPNS"  # CPI Apparel, not seasonally adjusted
 
 # --- Google Trends ---
 TRENDS_TERMS = [
-    "athleisure",
     "fast fashion",
-    "streetwear",
-    "sustainable fashion",
     "luxury fashion",
+    "sustainable fashion",
+    "couture",
+    "secondhand fashion",
+    "discount fashion",
 ]
 
 # --- Date Ranges ---
